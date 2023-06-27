@@ -5,8 +5,9 @@ const fs = require("fs");
 const receita = {
     nome: " ",
     dataDeCadastro: " ",
+    descricao: " ",
     ingredientes: " ",
     instrucoes: " ",
 };
 
-console.log(receita.nome, receita.dataDeCadastro, receita.ingredientes, receita.instrucoes);
+console.log(receita.nome, receita.dataDeCadastro, receita.descricao, receita.ingredientes, receita.instrucoes);

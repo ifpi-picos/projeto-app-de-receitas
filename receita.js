@@ -1,7 +1,7 @@
 const prompt = require('prompt-sync')();
 const fs = require('fs');
 
-let nome = prompt('informe o nome da preparação: ');
+let nome = prompt('Informe o nome da preparação: ');
 console.log(nome);
 
 const receita = [];
@@ -11,7 +11,7 @@ this.receita.push(receita)
 };
 
 function removerReceita(receita){
-    this.receita=this.receitas.filter(receita => receita.nome !==nome);
+    this.receita = this.receitas.filter(receita => receita.nome !== nome);
 };
 
 function exibirReceitas(receita){

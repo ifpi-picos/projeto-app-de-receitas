@@ -16,13 +16,14 @@ function removerReceita(receita){
 
 function exibirReceitas(receita){
     console.log("receita"),
+};
+
+function pesquisarReceita(){
+    let nome = prompt("Informe o nome da receita que você deseja ver:")
+    return {nome:nome}
+};
 
 function lerReceita(){
-    let nome=prompt("informe o nome:")
-    return {nome:nome}
-}
-
-let receita = lerReceita();
 console.log(receita)
     nome = nome,
     dataCadastro = data,
@@ -31,7 +32,6 @@ console.log(receita)
     modoDePreparo = instruções
 
     return {nome, dataCadastro, descricao, ingredientes, modoDePreparo}
-
 };
 
 function listarReceitasPorNome(){

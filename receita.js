@@ -15,7 +15,7 @@ function removerReceita(receita){
 };
 
 function exibirReceitas(receita){
-    console.log("receita"),
+    console.log("receita")
 };
 
 function pesquisarReceita(){

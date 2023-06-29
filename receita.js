@@ -19,3 +19,10 @@ exibirReceitas (){
     this.receitas.forEach.receitas;
 }
 
+function lerReceita(){
+    let nome=prompt("informe o nome:")
+    return {nome:nome}
+}
+
+let receita = lerReceita();
+console.log(receita)

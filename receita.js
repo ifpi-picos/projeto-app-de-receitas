@@ -19,8 +19,8 @@ function exibirReceitas(receita){
 };
 
 function pesquisarReceita(){
-    let nome = prompt("Informe o nome da receita que você deseja ver:");
-    return {nome:nome};
+    let nomePesquisado = prompt("Informe o nome da receita que você deseja ver:");
+    return {nomePesquisado:nomePesquisado};
 };
 
 function lerReceita(){

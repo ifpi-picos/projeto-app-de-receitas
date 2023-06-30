@@ -7,7 +7,7 @@ console.log(nome);
 const receita = [];
 
 function cadastrarReceita(receita){
-this.receita.push(receita)
+this.receita.push(receita);
 };
 
 function removerReceita(receita){
@@ -15,12 +15,12 @@ function removerReceita(receita){
 };
 
 function exibirReceitas(receita){
-    console.log("receita")
+    console.log("receita");
 };
 
 function pesquisarReceita(){
-    let nome = prompt("Informe o nome da receita que você deseja ver:")
-    return {nome:nome}
+    let nome = prompt("Informe o nome da receita que você deseja ver:");
+    return {nome:nome};
 };
 
 function lerReceita(){
@@ -31,21 +31,20 @@ console.log(receita)
     ingredientes = ingredientes,
     modoDePreparo = instruções
 
-    return {nome, dataCadastro, descricao, ingredientes, modoDePreparo}
+    return {nome, dataCadastro, descricao, ingredientes, modoDePreparo};
 };
 
 function listarReceitasPorNome(){
-    if (receita.length === 0) {
+    if (receita.length === 0){
       console.log("Nenhuma receita cadastrada!");
       return;
     };
   
-    const receitasOrdenadas = receita.slice().sort((a, b) =>
-      a.nome.localeCompare(b.nome)
-    );
+    const receitasOrdenadasNome = receita.slice().sort((a, b) =>
+      a.nome.localeCompare(b.nome));
   
     console.log("Receitas ordenadas por nome:");
-    receitasOrdenadas.forEach((receita) => {
+    receitasOrdenadasNome.forEach((receita) => {
       console.log("Nome:", receita.nome);
       console.log("Descrição:", receita.descricao);
       console.log("Data de Cadastro:", receita.dataCadastro);
@@ -53,21 +52,21 @@ function listarReceitasPorNome(){
     });
   };
   
-function listarReceitasPorData(){
-    if (data.length === 0) {
-        console.log("Nenhuma receita cadastrada nessa data!");
-        return;
-    }
-    
-    const receitasData = receita.slice().sort((a, b) =>
-    a.data.localeCompare(b.data)
-  );
+function listarReceitasPorDataCrescente(a, b){
+    return a.data > b.data;
+}
 
-  console.log("Receitas ordenadas por data:");
+function listarReceitasPorDataDecrescente(a, b){
+    return a.data < b.data;
+}
+
+data.sort(listarReceitasPorDataCrescente);
+
+console.log("Receitas ordenadas por data:");
     receitasOrdenadas.forEach((receita) => {
+      console.log("Data de Cadastro:", receita.dataCadastro);
       console.log("Nome:", receita.nome);
       console.log("Descrição:", receita.descricao);
-      console.log("Data de Cadastro:", receita.dataCadastro);
       console.log("**********Bom apetite!**********");
-    });
-};
+    })
+

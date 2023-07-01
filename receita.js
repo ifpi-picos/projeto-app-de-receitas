@@ -33,36 +33,25 @@ function removerReceita(nome){
 function exibirReceitas(){
     console.log("receita");
     for(let i = 0 ; i <= receitas.length; i++ ){
-        console.log(`Nome: ${receitas[i].nome}`);
-        console.log(`Nome: ${descricao[i].nome}`);
-        console.log(`Nome: ${ingredientes[i].nome}`);
-        console.log(`Nome: ${modoDePreparo[i].nome}`);
-        console.log(`Nome: ${dataCadastro[i].nome}`);     
+        console.log(`Receita: ${receitas[i].nome}`);
+        console.log(`Descrição: ${receitas[i].descricao}`);
+        console.log(`Ingredientes: ${receitas[i].ingredientes}`);
+        console.log(`Modo de preparo: ${receitas[i].modoDePreparo}`);
+        console.log(`Data de cadastro: ${receitas[i].dataCadastro}`);     
     };
 };
  
 function pesquisarReceita(){
     let nome = prompt("Informe o nome da receita que você deseja ver:");
-    return {nome:nome};
+    for(let i = 0 ; i <= receitas.length; i++ ){
+        if (nome == receitas[i].nome){
+        console.log(`Receita: ${receitas[i].nome}`);
+        console.log(`Descrição: ${receitas[i].descricao}`);
+        console.log(`Ingredientes: ${receitas[i].ingredientes}`);
+        console.log(`Modo de preparo: ${receitas[i].modoDePreparo}`);
+        console.log(`Data de cadastro: ${receitas[i].dataCadastro}`);     
+        };
 };
-
-function listarReceitasPorNome(){
-    if (receita.length === 0){
-      console.log("Nenhuma receita cadastrada!");
-      return;
-    };
-  
-    const receitasOrdenadasNome = receita.slice().sort((a, b) =>
-      a.nome.localeCompare(b.nome));
-  
-    console.log("Receitas ordenadas por nome:");
-    receitasOrdenadasNome.forEach((receita) => {
-      console.log("Nome:", receita.nome);
-      console.log("Descrição:", receita.descricao);
-      console.log("Data de Cadastro:", receita.dataCadastro);
-      console.log("**********Bom apetite!**********");
-    });
-  };
   
 function ordenarReceitasPorDataCrescente(a, b){
     return a.dataCadastro > b.dataCadastro;

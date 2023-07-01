@@ -8,22 +8,22 @@ class receita {
     this.modoDePreparo = modoDePreparo;
     this.descricao = descricao;
     this.dataCadastro = dataCadastro;
-    }
-}
+    };
+};
 
 const receitas = [];  
 
 function cadastrarReceita(){
-    let nome = prompt("Informe o nome da receita")
-    let descricao = prompt(" Descreva a receita ")
-    let ingredientes = prompt("Adicione os ingredientes")
-    let modoDePreparo = prompt ("Informe o modo de preparo")
+    let nome = prompt("Informe o nome da receita");
+    let descricao = prompt(" Descreva a receita ");
+    let ingredientes = prompt("Adicione os ingredientes");
+    let modoDePreparo = prompt ("Informe o modo de preparo");
     let dataCadastro = new Date().toLocaleDateString();
 
     let novaReceita = new receita (nome, descricao,ingredientes,modoDePreparo, dataCadastro);
     receitas.push(novaReceita);
 
-    console.log("Nova receita cadastrada com sucesso!")
+    console.log("Nova receita cadastrada com sucesso!");
 };
 
 function removerReceita(nome){
@@ -38,7 +38,7 @@ function exibirReceitas(){
         console.log(`Nome: ${ingredientes[i].nome}`);
         console.log(`Nome: ${modoDePreparo[i].nome}`);
         console.log(`Nome: ${dataCadastro[i].nome}`);     
-    }
+    };
 };
  
 function pesquisarReceita(){
@@ -46,7 +46,7 @@ function pesquisarReceita(){
     return {nome:nome};
 };
 
-function listarReceitasPorNome() {
+function listarReceitasPorNome(){
     if (receita.length === 0){
       console.log("Nenhuma receita cadastrada!");
       return;
@@ -80,24 +80,23 @@ function ordernarReceitasPorNomeCrescente(a, b){
     return a.nome > b.nome;
 }
 
-
-cadastrarReceita()
-cadastrarReceita()
-cadastrarReceita()
-pesquisarReceita()
-exibirReceitas()
-console.log("Data crescente")
-receitas.sort(ordenarReceitasPorDataCrescente)
-exibirReceitas()
-console.log("Data decrescente")
-receitas.sort(ordenarReceitasPorDataCrescente)
-exibirReceitas()
-console.log("Nome crescente")
-receitas.sort(ordernarReceitasPorNomeCrescente)
-exibirReceitas()
-console.log("Nome decrescente")
-receitas.sort(ordernarReceitasPorNomeDecrescente)
-exibirReceitas()
-let receita_remover = prompt("Informe o nome da receita a ser removida: ")
-removerReceita(receita_remover)
-exibirReceitas()
+cadastrarReceita();
+cadastrarReceita();
+cadastrarReceita();
+pesquisarReceita();
+exibirReceitas();
+console.log("Data crescente");
+receitas.sort(ordenarReceitasPorDataCrescente);
+exibirReceitas();
+console.log("Data decrescente");
+receitas.sort(ordenarReceitasPorDataCrescente);
+exibirReceitas();
+console.log("Nome crescente");
+receitas.sort(ordernarReceitasPorNomeCrescente);
+exibirReceitas();
+console.log("Nome decrescente");
+receitas.sort(ordernarReceitasPorNomeDecrescente);
+exibirReceitas();
+let receita_remover = prompt("Informe o nome da receita a ser removida: ");
+removerReceita(receita_remover);
+exibirReceitas();

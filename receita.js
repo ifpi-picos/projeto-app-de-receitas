@@ -13,6 +13,27 @@ class receita {
 
 var receitas = [];  
 
+function lerArquivo() {
+  if (fs.existsSync("receitas.txt")) {
+    linhas = fs.readFileSync("receitas.txt", "utf8").split("\n");
+    for (let i = 0; i < linhas.length; i++) {
+      let receitaAtual = linhas[i].split("****----****")
+      let novaReceita = new receita (receitaAtual[0], receitaAtual[1],receitaAtual[2],receitaAtual[3], receitaAtual[4]);
+      receitas.push(novaReceita);
+    }
+  }
+}
+
+function salvarArquivo() {
+  for (let i = 0; i < receitas.length; i++) {
+    if (i == 0) {
+      fs.writeFileSync("receitas.txt", `${receitas[i].nome}****----****${receitas[i].descricao}****----****${receitas[i].ingredientes}****----****${receitas[i].modoDePreparo}****----****${receitas[i].dataCadastro}`);
+    } else {
+      fs.appendFileSync("receitas.txt", `\n${receitas[i].nome}****----****${receitas[i].descricao}****----****${receitas[i].ingredientes}****----****${receitas[i].modoDePreparo}****----****${receitas[i].dataCadastro}`);
+    }
+  }
+}
+
 function cadastrarReceita(){
     let nome = prompt("Informe o nome da receita:");
     let descricao = prompt("Descreva a receita:");
@@ -92,8 +113,10 @@ function menu(){
     return opcao;
 }
 
-let opcao = menu()
+lerArquivo();
+let opcao = menu();
 while (opcao !== 9) {
+    console.clear();
     if (opcao == 1){
         cadastrarReceita()
     } else if (opcao == 2){
@@ -113,9 +136,10 @@ while (opcao !== 9) {
     } else {
         console.log("Opção inválida!")
     } 
-    opcao = menu();   
+    opcao = menu(); 
 }
 
+salvarArquivo();
 /*cadastrarReceita();
 cadastrarReceita();
 cadastrarReceita();
